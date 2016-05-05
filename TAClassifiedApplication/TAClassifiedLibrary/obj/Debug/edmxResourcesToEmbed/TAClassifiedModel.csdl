@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TAC_Team3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TAC_Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TAC_Classified">
+    <Key>
+      <PropertyRef Name="ClassifiedId" />
+    </Key>
+    <Property Name="ClassifiedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClassifiedTitle" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Summary" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="ClassifiedImage" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="ClassifiedPrice" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PostedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CreatedBy" Type="Guid" Nullable="false" />
+    <NavigationProperty Name="TAC_User" Relationship="Self.FK_TAC_Classified_TAC_Classified" FromRole="TAC_Classified" ToRole="TAC_User" />
+    <NavigationProperty Name="TAC_ClassifiedContact" Relationship="Self.FK_TAC_ClassifiedContact_TAC_Classified" FromRole="TAC_Classified" ToRole="TAC_ClassifiedContact" />
+  </EntityType>
+  <EntityType Name="TAC_ClassifiedContact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactPhone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ContactCity" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ClassifiedId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="TAC_Classified" Relationship="Self.FK_TAC_ClassifiedContact_TAC_Classified" FromRole="TAC_ClassifiedContact" ToRole="TAC_Classified" />
+  </EntityType>
+  <EntityType Name="TAC_Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" />
+    <Property Name="CountryName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="TAC_User" Relationship="Self.FK__TAC_User__Countr__1A14E395" FromRole="TAC_Country" ToRole="TAC_User" />
+  </EntityType>
+  <EntityType Name="TAC_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="Guid" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UPassword" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="Boolean" />
+    <Property Name="DOB" Type="DateTime" Precision="0" />
+    <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="State" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Country" Type="Int32" />
+    <Property Name="Phone" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IsVerified" Type="Boolean" />
+    <Property Name="IsLocked" Type="Boolean" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="TAC_Classified" Relationship="Self.FK_TAC_Classified_TAC_Classified" FromRole="TAC_User" ToRole="TAC_Classified" />
+    <NavigationProperty Name="TAC_Country" Relationship="Self.FK__TAC_User__Countr__1A14E395" FromRole="TAC_User" ToRole="TAC_Country" />
+  </EntityType>
+  <Association Name="FK_TAC_Classified_TAC_Classified">
+    <End Role="TAC_User" Type="Self.TAC_User" Multiplicity="1" />
+    <End Role="TAC_Classified" Type="Self.TAC_Classified" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="TAC_Classified">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TAC_ClassifiedContact_TAC_Classified">
+    <End Role="TAC_Classified" Type="Self.TAC_Classified" Multiplicity="1" />
+    <End Role="TAC_ClassifiedContact" Type="Self.TAC_ClassifiedContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_Classified">
+        <PropertyRef Name="ClassifiedId" />
+      </Principal>
+      <Dependent Role="TAC_ClassifiedContact">
+        <PropertyRef Name="ClassifiedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TAC_User__Countr__1A14E395">
+    <End Role="TAC_Country" Type="Self.TAC_Country" Multiplicity="0..1" />
+    <End Role="TAC_User" Type="Self.TAC_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="TAC_User">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TAC_Team3Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TAC_Category" EntityType="Self.TAC_Category" />
+    <EntitySet Name="TAC_Classified" EntityType="Self.TAC_Classified" />
+    <EntitySet Name="TAC_ClassifiedContact" EntityType="Self.TAC_ClassifiedContact" />
+    <EntitySet Name="TAC_Country" EntityType="Self.TAC_Country" />
+    <EntitySet Name="TAC_User" EntityType="Self.TAC_User" />
+    <AssociationSet Name="FK_TAC_Classified_TAC_Classified" Association="Self.FK_TAC_Classified_TAC_Classified">
+      <End Role="TAC_User" EntitySet="TAC_User" />
+      <End Role="TAC_Classified" EntitySet="TAC_Classified" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TAC_ClassifiedContact_TAC_Classified" Association="Self.FK_TAC_ClassifiedContact_TAC_Classified">
+      <End Role="TAC_Classified" EntitySet="TAC_Classified" />
+      <End Role="TAC_ClassifiedContact" EntitySet="TAC_ClassifiedContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TAC_User__Countr__1A14E395" Association="Self.FK__TAC_User__Countr__1A14E395">
+      <End Role="TAC_Country" EntitySet="TAC_Country" />
+      <End Role="TAC_User" EntitySet="TAC_User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

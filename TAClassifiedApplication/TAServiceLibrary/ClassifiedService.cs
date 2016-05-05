@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TAServiceLibrary
 {
-    class ClassifiedService : ICalssifiedcs
+    class ClassifiedService : IClassifiedService
     {
         public void GetAdd()
         {

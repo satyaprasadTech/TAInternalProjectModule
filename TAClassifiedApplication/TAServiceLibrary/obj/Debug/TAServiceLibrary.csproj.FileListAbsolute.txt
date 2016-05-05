@@ -1,0 +1,6 @@
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\bin\Debug\TAServiceLibrary.dll.config
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\bin\Debug\TAServiceLibrary.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\bin\Debug\TAServiceLibrary.pdb
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\obj\Debug\TAServiceLibrary.csprojResolveAssemblyReference.cache
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\obj\Debug\TAServiceLibrary.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAServiceLibrary\obj\Debug\TAServiceLibrary.pdb

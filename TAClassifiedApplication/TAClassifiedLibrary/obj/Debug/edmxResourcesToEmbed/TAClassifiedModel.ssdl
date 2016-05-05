@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TAC_Team3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TAC_Category">
+    <Key>
+      <PropertyRef Name="CategoryId" />
+    </Key>
+    <Property Name="CategoryId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CategoryImage" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="TAC_Classified">
+    <Key>
+      <PropertyRef Name="ClassifiedId" />
+    </Key>
+    <Property Name="ClassifiedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ClassifiedTitle" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="Summary" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Description" Type="varchar(max)" />
+    <Property Name="ClassifiedImage" Type="varchar" MaxLength="100" />
+    <Property Name="ClassifiedPrice" Type="numeric" Precision="18" Scale="2" Nullable="false" />
+    <Property Name="PostedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TAC_ClassifiedContact">
+    <Key>
+      <PropertyRef Name="ContactId" />
+    </Key>
+    <Property Name="ContactId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ContactName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ContactPhone" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="ContactCity" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ClassifiedId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TAC_Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="CountryName" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TAC_User">
+    <Key>
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="UserId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" />
+    <Property Name="UPassword" Type="varchar" MaxLength="20" />
+    <Property Name="First Name" Type="varchar" MaxLength="50" />
+    <Property Name="Last Name" Type="varchar" MaxLength="50" />
+    <Property Name="Gender" Type="bit" />
+    <Property Name="DOB" Type="date" />
+    <Property Name="Address1" Type="varchar" MaxLength="100" />
+    <Property Name="Address2" Type="varchar" MaxLength="100" />
+    <Property Name="City" Type="varchar" MaxLength="50" />
+    <Property Name="State" Type="varchar" MaxLength="20" />
+    <Property Name="Country" Type="int" />
+    <Property Name="Phone" Type="varchar" MaxLength="20" />
+    <Property Name="IsVerified" Type="bit" />
+    <Property Name="IsLocked" Type="bit" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedDate" Type="datetime" />
+  </EntityType>
+  <Association Name="FK__TAC_User__Countr__1A14E395">
+    <End Role="TAC_Country" Type="Self.TAC_Country" Multiplicity="0..1" />
+    <End Role="TAC_User" Type="Self.TAC_User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="TAC_User">
+        <PropertyRef Name="Country" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TAC_Classified_TAC_Classified">
+    <End Role="TAC_User" Type="Self.TAC_User" Multiplicity="1" />
+    <End Role="TAC_Classified" Type="Self.TAC_Classified" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_User">
+        <PropertyRef Name="UserId" />
+      </Principal>
+      <Dependent Role="TAC_Classified">
+        <PropertyRef Name="CreatedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TAC_ClassifiedContact_TAC_Classified">
+    <End Role="TAC_Classified" Type="Self.TAC_Classified" Multiplicity="1" />
+    <End Role="TAC_ClassifiedContact" Type="Self.TAC_ClassifiedContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TAC_Classified">
+        <PropertyRef Name="ClassifiedId" />
+      </Principal>
+      <Dependent Role="TAC_ClassifiedContact">
+        <PropertyRef Name="ClassifiedId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="TAC_Team3ModelStoreContainer">
+    <EntitySet Name="TAC_Category" EntityType="Self.TAC_Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAC_Classified" EntityType="Self.TAC_Classified" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAC_ClassifiedContact" EntityType="Self.TAC_ClassifiedContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAC_Country" EntityType="Self.TAC_Country" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TAC_User" EntityType="Self.TAC_User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TAC_User__Countr__1A14E395" Association="Self.FK__TAC_User__Countr__1A14E395">
+      <End Role="TAC_Country" EntitySet="TAC_Country" />
+      <End Role="TAC_User" EntitySet="TAC_User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TAC_Classified_TAC_Classified" Association="Self.FK_TAC_Classified_TAC_Classified">
+      <End Role="TAC_User" EntitySet="TAC_User" />
+      <End Role="TAC_Classified" EntitySet="TAC_Classified" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TAC_ClassifiedContact_TAC_Classified" Association="Self.FK_TAC_ClassifiedContact_TAC_Classified">
+      <End Role="TAC_Classified" EntitySet="TAC_Classified" />
+      <End Role="TAC_ClassifiedContact" EntitySet="TAC_ClassifiedContact" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

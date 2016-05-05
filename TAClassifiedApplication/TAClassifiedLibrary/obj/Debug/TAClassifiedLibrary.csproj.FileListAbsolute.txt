@@ -1,0 +1,10 @@
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\TAClassifiedLibrary.dll.config
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\TAClassifiedLibrary.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\TAClassifiedLibrary.pdb
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\EntityFramework.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\EntityFramework.SqlServer.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\EntityFramework.xml
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\bin\Debug\EntityFramework.SqlServer.xml
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\obj\Debug\TAClassifiedLibrary.csprojResolveAssemblyReference.cache
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\obj\Debug\TAClassifiedLibrary.dll
+E:\Internal Project\TAClassifieds\TAClassifiedApplication\TAClassifiedLibrary\obj\Debug\TAClassifiedLibrary.pdb

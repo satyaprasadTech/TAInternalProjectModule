@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TAC_Team3ModelStoreContainer" CdmEntityContainer="TAC_Team3Entities">
+    <EntitySetMapping Name="TAC_Category">
+      <EntityTypeMapping TypeName="TAC_Team3Model.TAC_Category">
+        <MappingFragment StoreEntitySet="TAC_Category">
+          <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+          <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+          <ScalarProperty Name="CategoryImage" ColumnName="CategoryImage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAC_Classified">
+      <EntityTypeMapping TypeName="TAC_Team3Model.TAC_Classified">
+        <MappingFragment StoreEntitySet="TAC_Classified">
+          <ScalarProperty Name="ClassifiedId" ColumnName="ClassifiedId" />
+          <ScalarProperty Name="ClassifiedTitle" ColumnName="ClassifiedTitle" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="ClassifiedImage" ColumnName="ClassifiedImage" />
+          <ScalarProperty Name="ClassifiedPrice" ColumnName="ClassifiedPrice" />
+          <ScalarProperty Name="PostedDate" ColumnName="PostedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAC_ClassifiedContact">
+      <EntityTypeMapping TypeName="TAC_Team3Model.TAC_ClassifiedContact">
+        <MappingFragment StoreEntitySet="TAC_ClassifiedContact">
+          <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+          <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+          <ScalarProperty Name="ContactPhone" ColumnName="ContactPhone" />
+          <ScalarProperty Name="ContactCity" ColumnName="ContactCity" />
+          <ScalarProperty Name="ClassifiedId" ColumnName="ClassifiedId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAC_Country">
+      <EntityTypeMapping TypeName="TAC_Team3Model.TAC_Country">
+        <MappingFragment StoreEntitySet="TAC_Country">
+          <ScalarProperty Name="CountryId" ColumnName="CountryId" />
+          <ScalarProperty Name="CountryName" ColumnName="CountryName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TAC_User">
+      <EntityTypeMapping TypeName="TAC_Team3Model.TAC_User">
+        <MappingFragment StoreEntitySet="TAC_User">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="UPassword" ColumnName="UPassword" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address2" ColumnName="Address2" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="State" ColumnName="State" />
+          <ScalarProperty Name="Country" ColumnName="Country" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="IsVerified" ColumnName="IsVerified" />
+          <ScalarProperty Name="IsLocked" ColumnName="IsLocked" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

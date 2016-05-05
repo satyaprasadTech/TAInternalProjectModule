@@ -46,7 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassifiedService.cs" />
-    <Compile Include="ICalssifiedcs.cs" />
+    <Compile Include="IClassifiedService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
