@@ -6,28 +6,22 @@ using System.Web.Mvc;
 
 namespace TAClassifiedApplication.Controllers
 {
-    public class HomeController : Controller
+    public class LoginController : Controller
     {
 
-        public ActionResult Home()
+        // GET: Login
+        public ActionResult Login()
         {
             return View();
         }
 
-        // GET: Contactus
-        public ActionResult Contactus()
+        // GET: Register
+        public ActionResult Register()
         {
             return View();
         }
 
-        // GET: Postad
-        public ActionResult Postad()
-        {
-            return View();
-        }
-
-        // GET: ViewDetail
-        public ActionResult ViewDetail()
+        public ActionResult MyAccount()
         {
             return View();
         }
