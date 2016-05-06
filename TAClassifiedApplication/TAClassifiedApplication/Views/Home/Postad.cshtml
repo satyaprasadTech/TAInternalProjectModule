@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+@Html.Partial("_CategorySubLayout")
+<div class="row">
+    <div class="logincontainer">
+        <h4><label>Post an ad for: <span class="category"></span></label></h4>
+        <form class="form-horizontal form-signin form-margin" role="form">
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="adTitle">Ad Title* </label>
+                <div class="col-sm-6">
+                    <input type="text" class="form-control" id="adTitle" name="adTitle" placeholder="Give the Title for your ad here">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="adDesc">Ad Description* </label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" id="adDesc" name="adDesc" placeholder="Give a brief description for your ad here"> </textarea>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="uploadPic">Upload photos</label>
+                <div class="col-xs-6">
+                    <input type="file" onchange="readURL(this);" id="uploadPic" />
+                    <img id="pic" src="#" alt="your image" width="100px" height="100px" />
+                </div>
+            </div>
+            <hr>
+            <h4><label class="col-sm-12 col-xs-12">Your contact details:</label></h4>
+            <div class="form-group ">
+                <label class="control-label col-sm-4" for="name">Name*</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="name" placeholder="Enter Your name">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="phone">Phone</label>
+                <div class="col-xs-6">
+                    <input type="tel" class="form-control" id="phone" placeholder="+91">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="city">City*</label>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" id="city" placeholder="Enter Your city">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="price">Quote Price</label>
+                <div class="col-xs-6">
+                    <input type="number" class="form-control" id="price" placeholder="Rs.">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-4 col-sm-12">
+                    <button id="create-btn" class="btn btn-default btn-success">Post Ad</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
