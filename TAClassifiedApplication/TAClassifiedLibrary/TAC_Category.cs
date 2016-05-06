@@ -11,11 +11,16 @@ namespace TAClassifiedLibrary
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization
     
+    [DataContract]
     public partial class TAC_Category
     {
+       [DataMember]
         public int CategoryId { get; set; }
+        [DataMember]
         public string CategoryName { get; set; }
+        [DataMember]
         public string CategoryImage { get; set; }
     }
 }

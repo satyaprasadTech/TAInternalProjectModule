@@ -11,7 +11,9 @@ namespace TAClassifiedLibrary
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [DataContract]
     public partial class TAC_Classified
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,17 +22,17 @@ namespace TAClassifiedLibrary
             this.TAC_ClassifiedContact = new HashSet<TAC_ClassifiedContact>();
         }
     
-        public int ClassifiedId { get; set; }
-        public string ClassifiedTitle { get; set; }
-        public string Summary { get; set; }
-        public string Description { get; set; }
-        public string ClassifiedImage { get; set; }
-        public decimal ClassifiedPrice { get; set; }
-        public System.DateTime PostedDate { get; set; }
-        public System.Guid CreatedBy { get; set; }
-    
-        public virtual TAC_User TAC_User { get; set; }
+       [DataMember] public int ClassifiedId { get; set; }
+       [DataMember] public string ClassifiedTitle { get; set; }
+       [DataMember] public string Summary { get; set; }
+       [DataMember] public string Description { get; set; }
+       [DataMember] public string ClassifiedImage { get; set; }
+       [DataMember] public decimal ClassifiedPrice { get; set; }
+       [DataMember] public System.DateTime PostedDate { get; set; }
+       [DataMember] public System.Guid CreatedBy { get; set; }
+       
+       [DataMember] public virtual TAC_User TAC_User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<TAC_ClassifiedContact> TAC_ClassifiedContact { get; set; }
+       [DataMember] public virtual ICollection<TAC_ClassifiedContact> TAC_ClassifiedContact { get; set; }
     }
 }

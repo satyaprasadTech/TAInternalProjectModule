@@ -11,15 +11,17 @@ namespace TAClassifiedLibrary
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [DataContract]
     public partial class TAC_ClassifiedContact
     {
-        public int ContactId { get; set; }
-        public string ContactName { get; set; }
-        public string ContactPhone { get; set; }
-        public string ContactCity { get; set; }
-        public int ClassifiedId { get; set; }
-    
-        public virtual TAC_Classified TAC_Classified { get; set; }
+        [DataMember]public int ContactId { get; set; }
+        [DataMember]public string ContactName { get; set; }
+        [DataMember]public string ContactPhone { get; set; }
+        [DataMember]public string ContactCity { get; set; }
+        [DataMember]public int ClassifiedId { get; set; }
+        
+        [DataMember]public virtual TAC_Classified TAC_Classified { get; set; }
     }
 }

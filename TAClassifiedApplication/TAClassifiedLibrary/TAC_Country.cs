@@ -11,7 +11,9 @@ namespace TAClassifiedLibrary
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [DataContract]
     public partial class TAC_Country
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -20,10 +22,12 @@ namespace TAClassifiedLibrary
             this.TAC_User = new HashSet<TAC_User>();
         }
     
-        public int CountryId { get; set; }
+       [DataMember] public int CountryId { get; set; }
+        [DataMember]
         public string CountryName { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<TAC_User> TAC_User { get; set; }
     }
 }

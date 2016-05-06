@@ -11,7 +11,9 @@ namespace TAClassifiedLibrary
 {
     using System;
     using System.Collections.Generic;
+    using System.Runtime.Serialization;
     
+    [DataContract]
     public partial class TAC_User
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,27 +21,47 @@ namespace TAClassifiedLibrary
         {
             this.TAC_Classified = new HashSet<TAC_Classified>();
         }
-    
+
+        [DataMember]
         public System.Guid UserId { get; set; }
+        [DataMember]
         public string Email { get; set; }
+        [DataMember]
         public string UPassword { get; set; }
+        [DataMember]
         public string First_Name { get; set; }
+        [DataMember]
         public string Last_Name { get; set; }
+        [DataMember]
+        
         public Nullable<bool> Gender { get; set; }
+        [DataMember]
         public Nullable<System.DateTime> DOB { get; set; }
+        [DataMember]
         public string Address1 { get; set; }
+        [DataMember]
         public string Address2 { get; set; }
+        [DataMember]
         public string City { get; set; }
+        [DataMember]
         public string State { get; set; }
+        [DataMember]
         public Nullable<int> Country { get; set; }
+        [DataMember]
         public string Phone { get; set; }
+        [DataMember]
         public Nullable<bool> IsVerified { get; set; }
+        [DataMember]
         public Nullable<bool> IsLocked { get; set; }
+        [DataMember]
         public Nullable<bool> IsActive { get; set; }
+        [DataMember]
         public Nullable<System.DateTime> CreatedDate { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [DataMember]
         public virtual ICollection<TAC_Classified> TAC_Classified { get; set; }
+        [DataMember]
         public virtual TAC_Country TAC_Country { get; set; }
     }
 }
